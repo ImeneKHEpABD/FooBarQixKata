@@ -8,7 +8,12 @@ namespace FooBarQixToolkit
 {
     public class FooBarQix
     {
-
+        public Dictionary<int, string> DicDividerRules = new Dictionary<int, string>
+        {
+            [3] = "Foo",
+            [5] = "Bar",
+            [7] = "Qix"
+        };
         public string Compute(string number)
         {
             long integer;
@@ -77,28 +82,12 @@ namespace FooBarQixToolkit
             
             try
             {
-                if (number % 3 != 0
-                       && number % 5 != 0
-                       && number % 7 != 0)
+                foreach (var val in DicDividerRules)
                 {
-                    return string.Empty;
+                    if (number % val.Key == 0)
+                        result += val.Value;
                 }
-                else
-                {
-                    if (number % 3 == 0)
-                    {
-                        result += "Foo";
-                    }
-                    if (number % 5 == 0)
-                    {
-                        result += "Bar";
-                    }
-                    if (number % 7 == 0)
-                    {
-                        result += "Qix";
-                    }
-                    return result;
-                }
+                return result;
             }
             catch (Exception ex)
             {
