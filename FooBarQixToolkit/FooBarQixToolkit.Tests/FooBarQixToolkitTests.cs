@@ -50,5 +50,13 @@ namespace FooBarQixToolkit.Tests
             var computed = new FooBarQix().Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
+
+        [TestCase("5", "BarBar")]
+        [TestCase("25", "BarBar")]
+        public void should_return_string_that_contains_multiple_Bar_when_input_string_is_divisible_by_5_and_contains_5(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
     }
 }
