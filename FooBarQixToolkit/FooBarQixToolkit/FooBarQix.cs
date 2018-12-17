@@ -57,6 +57,8 @@ namespace FooBarQixToolkit
                     {
                         if (c == '3')
                             result.Append("Foo");
+                        if (c == '5')
+                            result.Append("Bar");
                     }
                     return result.ToString();
                 }
