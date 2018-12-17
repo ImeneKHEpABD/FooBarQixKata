@@ -43,5 +43,12 @@ namespace FooBarQixToolkit.Tests
             var computed = new FooBarQix().Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
+
+        [TestCase("10", "Bar")]
+        public void should_return_string_that_contains_only_one_Bar_when_input_is_only_divisible_by_5(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
     }
 }
