@@ -91,11 +91,11 @@ namespace FooBarQixToolkit
                     }
                     if (number % 5 == 0)
                     {
-                        result = "Bar";
+                        result += "Bar";
                     }
                     if (number % 7 == 0)
                     {
-                        result = "Qix";
+                        result += "Qix";
                     }
                     return result;
                 }

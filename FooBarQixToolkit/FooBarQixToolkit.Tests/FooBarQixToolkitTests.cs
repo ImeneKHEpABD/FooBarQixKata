@@ -94,6 +94,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("15", "FooBarBar")]
         public void should_return_string_that_contains_respectively_Foo_Bar_or_Qix_when_input_is_divisible_by_3_5_or_7(string number, string expected)
         {
+
             var computed = new FooBarQix().Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
