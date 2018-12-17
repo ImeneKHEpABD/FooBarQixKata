@@ -8,6 +8,7 @@ namespace FooBarQixToolkit
 {
     public class FooBarQix
     {
+
         public string Compute(string number)
         {
             long integer;
@@ -51,7 +52,6 @@ namespace FooBarQixToolkit
                 }
                 else
                 {
-
                     return result;
                 }
             }

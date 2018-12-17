@@ -26,5 +26,13 @@ namespace FooBarQixToolkit.Tests
             var computed = new FooBarQix().Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
+
+        [TestCase("13", "Foo")]
+        [TestCase("32", "Foo")]
+        public void should_return_string_that_contains_only_one_Foo_when_input_only_contains_only_one_3(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
     }
 }
