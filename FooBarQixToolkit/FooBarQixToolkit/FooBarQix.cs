@@ -40,7 +40,8 @@ namespace FooBarQixToolkit
 
         public string ApplytheContainsRule(string number)
         {
-            string result = string.Empty;
+
+            StringBuilder result = new StringBuilder();
             try
             {
 
@@ -55,9 +56,9 @@ namespace FooBarQixToolkit
                     foreach(char c in number)
                     {
                         if (c == '3')
-                            result += "Foo";
+                            result.Append("Foo");
                     }
-                    return result;
+                    return result.ToString();
                 }
             }
             catch (Exception ex)
