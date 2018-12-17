@@ -74,7 +74,10 @@ namespace FooBarQixToolkit
                 }
                 else
                 {
-                  
+                    if (number % 3 == 0)
+                    {
+                        result += "Foo";
+                    }
                     return result;
                 }
             }
