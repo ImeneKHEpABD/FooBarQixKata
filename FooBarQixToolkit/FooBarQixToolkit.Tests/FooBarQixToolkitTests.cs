@@ -108,6 +108,14 @@ namespace FooBarQixToolkit.Tests
             Assert.That(computed, Is.EqualTo(expected));
         }
 
+        [TestCase("303", "FooFoo*Foo")]
+        public void should_return_string_that_contains_only_Foo_and_asterisk_when_input_is_only_divisible_by_3_and_contains_3_and_0(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
+
+
 
 
 
