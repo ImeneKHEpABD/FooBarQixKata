@@ -29,7 +29,16 @@ namespace FooBarQixToolkit.Tests
 
         [TestCase("13", "Foo")]
         [TestCase("32", "Foo")]
-        public void should_return_string_that_contains_only_one_Foo_when_input_only_contains_only_one_3(string number, string expected)
+        public void should_return_string_that_contains_only_one_Foo_when_input_only_contains_only_3(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
+
+        [TestCase("3", "FooFoo")]
+        [TestCase("33", "FooFooFoo")]
+
+        public void should_return_string_that_contains_multiple_Foo_when_input_contains_at_least_one_3_and_is_divisisble_by_3(string number, string expected)
         {
             var computed = new FooBarQix().Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
