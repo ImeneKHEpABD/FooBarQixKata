@@ -27,7 +27,7 @@ namespace FooBarQixToolkit
                 else
                 {
                     result = ApplytheDeviderRule(integer);
-                    result += ApplytheContainsRule(number);
+                    result += BuildString(result, number);
 
                     if (string.IsNullOrEmpty(result))
                     {
@@ -42,39 +42,25 @@ namespace FooBarQixToolkit
                 return string.Empty;
             }
         }
-
+        
         public string ApplytheContainsRule(string number)
         {
 
             StringBuilder result = new StringBuilder();
             try
             {
-
-                if (!number.Contains("3")
-                    && !number.Contains("5")
-                    && !number.Contains("7"))
+                foreach (char c in number)
                 {
-                    if(number.Contains("0"))
-                    {
-                        return number.Replace('0', '*');
-                    }
-                    return string.Empty;
+                    if (c == '3')
+                        result.Append("Foo");
+                    if (c == '5')
+                        result.Append("Bar");
+                    if (c == '7')
+                        result.Append("Qix");
+                    if (c == '0')
+                        result.Append("*");
                 }
-                else
-                {
-                    foreach(char c in number)
-                    {
-                        if (c == '3')
-                            result.Append("Foo");
-                        if (c == '5')
-                            result.Append("Bar");
-                        if (c == '7')
-                            result.Append("Qix");
-                        if (c == '0')
-                            result.Append("*");
-                    }
-                    return result.ToString();
-                }
+                return result.ToString();
             }
             catch (Exception ex)
             {
@@ -99,6 +85,34 @@ namespace FooBarQixToolkit
             {
                 return string.Empty;
             }
+        }
+
+        public string BuildString(string dividerresult, string number)
+        {
+            var result = string.Empty;
+            try
+            {
+                if ((string.IsNullOrEmpty(dividerresult.Trim()))
+                    && !number.Contains("3")
+                    && !number.Contains("5")
+                    && !number.Contains("7"))
+                {
+                    if (number.Contains("0"))
+                    {
+                        result = number.Replace('0', '*');
+                    }
+
+                }
+                else
+                {
+                    result = ApplytheContainsRule(number);
+                }
+            }
+            catch (Exception ex)
+            {
+                result = string.Empty;
+            }
+            return result.ToString();
         }
     }
 }
