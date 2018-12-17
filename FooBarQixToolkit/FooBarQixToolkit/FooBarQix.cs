@@ -72,6 +72,7 @@ namespace FooBarQixToolkit
         public string ApplytheDeviderRule(long number)
         {
             string result = string.Empty;
+            
             try
             {
                 if (number % 3 != 0

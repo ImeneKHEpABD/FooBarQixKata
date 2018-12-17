@@ -66,7 +66,18 @@ namespace FooBarQixToolkit.Tests
             Assert.That(computed, Is.EqualTo(expected));
         }
 
-     
+        [TestCase("17", "Qix")]
+        [TestCase("47", "Qix")]
+        public void should_return_string_that_contains_only_one_Qix_when_input_string_contains_only_one_7(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
+       
+
+
+
+
 
     }
 }
