@@ -99,6 +99,15 @@ namespace FooBarQixToolkit.Tests
             Assert.That(computed, Is.EqualTo(expected));
         }
 
+        [TestCase("101", "1*1")]
+        [TestCase("202", "2*2")]
+        [TestCase("802", "8*2")]
+        public void should_return_string_that_contains_numbers_and_asterisk_when_input_contains_0_and_regular_numbers(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
+
 
 
 
