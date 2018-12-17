@@ -8,33 +8,76 @@ namespace FooBarQixToolkit
 {
     public class FooBarQix
     {
-        public string Compute(string Number)
+        public string Compute(string number)
         {
-            int integer;
+            long integer;
+            var result = string.Empty;
             try
             {
-                if (!Int32.TryParse(Number, out integer))
+                if (!Int64.TryParse(number, out integer))
                 {
                     return string.Empty;
                 }
                 else
                 {
-                    if (!Number.Contains("3")
-                       && !Number.Contains("5")
-                       && !Number.Contains("7")
-                       && integer % 3 != 0
-                       && integer % 5 != 0
-                       && integer % 7 != 0)
+                    result = ApplytheDeviderRule(integer);
+                    result += ApplytheContainsRule(number);
+
+                    if (string.IsNullOrEmpty(result))
                     {
-                        return Number;
+                        result = number.ToString();
                     }
-                    else
-                    {
-                        return string.Empty;
-                    }
+
+                    return result;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+
+        public string ApplytheContainsRule(string number)
+        {
+            string result = string.Empty;
+            try
+            {
+
+                if (!number.Contains("3")
+                    && !number.Contains("5")
+                    && !number.Contains("7"))
+                {
+                    return string.Empty;
+                }
+                else
+                {
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+
+        public string ApplytheDeviderRule(long number)
+        {
+            string result = string.Empty;
+            try
+            {
+                if (number % 3 != 0
+                       && number % 5 != 0
+                       && number % 7 != 0)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return result;
+                }
+            }
+            catch (Exception ex)
             {
                 return string.Empty;
             }
