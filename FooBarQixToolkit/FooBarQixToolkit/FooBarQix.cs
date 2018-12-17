@@ -54,6 +54,10 @@ namespace FooBarQixToolkit
                     && !number.Contains("5")
                     && !number.Contains("7"))
                 {
+                    if(number.Contains("0"))
+                    {
+                        return number.Replace('0', '*');
+                    }
                     return string.Empty;
                 }
                 else
