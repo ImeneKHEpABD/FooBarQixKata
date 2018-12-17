@@ -70,6 +70,8 @@ namespace FooBarQixToolkit
                             result.Append("Bar");
                         if (c == '7')
                             result.Append("Qix");
+                        if (c == '0')
+                            result.Append("*");
                     }
                     return result.ToString();
                 }
