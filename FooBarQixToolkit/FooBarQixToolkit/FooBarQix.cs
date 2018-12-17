@@ -52,6 +52,11 @@ namespace FooBarQixToolkit
                 }
                 else
                 {
+                    foreach(char c in number)
+                    {
+                        if (c == '3')
+                            result = "Foo";
+                    }
                     return result;
                 }
             }
