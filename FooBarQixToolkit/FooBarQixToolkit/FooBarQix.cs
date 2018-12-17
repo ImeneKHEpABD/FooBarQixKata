@@ -55,7 +55,7 @@ namespace FooBarQixToolkit
                     foreach(char c in number)
                     {
                         if (c == '3')
-                            result = "Foo";
+                            result += "Foo";
                     }
                     return result;
                 }
