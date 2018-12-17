@@ -8,9 +8,36 @@ namespace FooBarQixToolkit
 {
     public class FooBarQix
     {
-        public string Compute(string strNumber)
+        public string Compute(string Number)
         {
-            return string.Empty;
+            int integer;
+            try
+            {
+                if (!Int32.TryParse(Number, out integer))
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    if (!Number.Contains("3")
+                       && !Number.Contains("5")
+                       && !Number.Contains("7")
+                       && integer % 3 != 0
+                       && integer % 5 != 0
+                       && integer % 7 != 0)
+                    {
+                        return Number;
+                    }
+                    else
+                    {
+                        return string.Empty;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                return string.Empty;
+            }
         }
     }
 }
