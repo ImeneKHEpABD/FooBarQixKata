@@ -58,5 +58,15 @@ namespace FooBarQixToolkit.Tests
             var computed = new FooBarQix().Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
+
+        [TestCase("28", "Qix")]
+        public void should_return_string_that_contains_only_one_Qix_when_input_string_is_only_divisible_by_7(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
+
+     
+
     }
 }
