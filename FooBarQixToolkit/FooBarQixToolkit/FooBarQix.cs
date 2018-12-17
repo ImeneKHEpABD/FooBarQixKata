@@ -84,6 +84,10 @@ namespace FooBarQixToolkit
                     {
                         result += "Foo";
                     }
+                    if (number % 5 == 0)
+                    {
+                        result = "Bar";
+                    }
                     return result;
                 }
             }
