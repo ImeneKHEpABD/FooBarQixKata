@@ -108,7 +108,14 @@ namespace FooBarQixToolkit.Tests
             Assert.That(computed, Is.EqualTo(expected));
         }
 
-
+        [TestCase("10", "Bar*")]
+        [TestCase("1050", "FooBarQix*Bar*")]
+        [TestCase("10101", "FooQix**")]
+        public void should_return_string_that_contains_respectively_Foo_Bar_Qix_and_asterisk_when_input_is_divisible_by_3_5_or_7_and_contains_3_5_7_or_0(string number, string expected)
+        {
+            var computed = new FooBarQix().Compute(number);
+            Assert.That(computed, Is.EqualTo(expected));
+        }
 
 
 
