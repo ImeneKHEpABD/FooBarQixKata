@@ -90,6 +90,10 @@ namespace FooBarQixToolkit
                     {
                         result = "Bar";
                     }
+                    if (number % 7 == 0)
+                    {
+                        result = "Qix";
+                    }
                     return result;
                 }
             }
