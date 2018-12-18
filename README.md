@@ -36,7 +36,7 @@ We have a new business request : we must keep a trace of 0 in numbers, each 0 mu
 * 10101 => FooQix**
 
 ## Getting Started
-# Project type
+### Project type
 The given solution is a .Net toolkit that allows any other user to build his own application to evaluate the FooBarQix rules for a given string input.
 The following rules were implemented:
 * The Division rule : 
@@ -48,10 +48,10 @@ For each digit 3,5,7 and 0, add respectively "Foo", "Bar", "Qix", “*“.
 
 If the rules are not applicable, then the Evaluate method will return the input number string if it does not include 0, otherwise it will return a string after replacing the 0 by "*"
 
-# Installing
+### Installing
 In order to successfully compile the project solution, you will require to do the following:
    - Install Visual studio 2017 or later 
    - Install the nugget packages NUnit.3.11.0,NUnit3TestAdapter.3.11.2 and NLog.4.5.6
 
-# Running the tests
+### Running the tests
 The unit tests were implemented in the FooBarQixToolkit.Tests project. The comprehensive testing was applied and all the test cases methods names are described enough to be clear to a normal user.
