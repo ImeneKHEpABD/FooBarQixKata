@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ImeneKHEpABD/FooBarQixKata.svg?branch=master)](https://travis-ci.org/ImeneKHEpABD/FooBarQixKata)
 # FooBarQixKata
 FooBarQix
 You should implement a function String compute(String) which implements the following rules.
