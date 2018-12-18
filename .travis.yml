@@ -1,2 +1,2 @@
 language: csharp
-solution: FooBarQixToolkit.sln
+solution: FooBarQixToolkit\FooBarQixToolkit.sln
