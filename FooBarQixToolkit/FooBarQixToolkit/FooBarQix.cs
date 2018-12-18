@@ -16,6 +16,14 @@ namespace FooBarQixToolkit
             [5] = "Bar",
             [7] = "Qix"
         };
+
+        public Dictionary<int, string> DicContainsRules = new Dictionary<int, string>
+        {
+            [3] = "Foo",
+            [5] = "Bar",
+            [7] = "Qix",
+            [0] = "*"
+        };
         public FooBarQix()
         {
             logger = LogManager.GetCurrentClassLogger();
@@ -50,24 +58,16 @@ namespace FooBarQixToolkit
                 return string.Empty;
             }
         }
-        
+
         public string ApplytheContainsRule(string number)
         {
-
+            int key;
             StringBuilder result = new StringBuilder();
             try
             {
-                foreach (char c in number)
-                {
-                    if (c == '3')
-                        result.Append("Foo");
-                    if (c == '5')
-                        result.Append("Bar");
-                    if (c == '7')
-                        result.Append("Qix");
-                    if (c == '0')
-                        result.Append("*");
-                }
+                key = Int16.Parse(number);
+                if (DicContainsRules.ContainsKey(key))
+                    result.Append(DicContainsRules[key]);
                 return result.ToString();
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace FooBarQixToolkit
         public string ApplytheDeviderRule(long number)
         {
             string result = string.Empty;
-            
+
             try
             {
                 foreach (var val in DicDividerRules)
@@ -107,15 +107,11 @@ namespace FooBarQixToolkit
                     && !number.Contains("5")
                     && !number.Contains("7"))
                 {
-                    if (number.Contains("0"))
-                    {
-                        result = number.Replace('0', '*');
-                    }
-
+                    result = number.Replace('0', '*');
                 }
                 else
                 {
-                    result = ApplytheContainsRule(number);
+                    result = number.Aggregate(result, (current, t) => current + ApplytheContainsRule(t.ToString()));
                 }
             }
             catch (Exception ex)
