@@ -35,6 +35,17 @@ We have a new business request : we must keep a trace of 0 in numbers, each 0 mu
 * 105   => FooBarQix*Bar
 * 10101 => FooQix**
 
+# Getting Started
+The FooBarQix kata is mainly composed of two rules to apply on a given number:
+* The Division rule : 
+   - If the number is divisible by 3 then add Foo
+   - If the number is divisible by 5 then add Bar
+   - If the number is divisible by 7 then add Qix
+* The Contains rule:
+For each digit 3,5,7 and 0, add respectively "Foo", "Bar", "Qix", “*“.
+
+If the rules are not applicable, then the Evaluate method will return the input number string if it does not include 0, otherwise it will return a string after replacing the 0 by "*"
+
 # Project type
 The given solution is a .Net toolkit that allows any other user to build his own application to evaluate the FooBarQix rules for a given string input.
 
