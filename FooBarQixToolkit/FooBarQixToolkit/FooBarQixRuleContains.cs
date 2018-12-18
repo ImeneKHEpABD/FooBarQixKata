@@ -1,9 +1,8 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FooBarQixToolkit
 {
@@ -31,7 +30,7 @@ namespace FooBarQixToolkit
             }
             catch (Exception ex)
             {
-                logger.Error("An error occurred in the ApplytheContainsRule method: " + ex.Message);
+                logger.Error("An error occurred in the FooBarQixRuleContains:ApplyRule method: " + ex.Message);
                 return string.Empty;
             }
         }

@@ -1,13 +1,10 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FooBarQixToolkit
 {
-    public class FooBarQixRuleDividers
+    public class FooBarQixRuleDividers: FooBarQixAbstractRules
     {
         private static Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public Dictionary<int, string> DicDividerRules = new Dictionary<int, string>
@@ -17,24 +14,26 @@ namespace FooBarQixToolkit
             [7] = "Qix"
         };
 
-        public string ApplytheDeviderRule(long number)
+        public override string ApplyRule(string number)
         {
-            string result = string.Empty;
-
-            try
+            long Number = 0;
+            var result = string.Empty;
+            if (Int64.TryParse(number, out Number))
             {
-                foreach (var val in DicDividerRules)
+                try
                 {
-                    if (number % val.Key == 0)
-                        result += val.Value;
+                    foreach (var val in DicDividerRules)
+                    {
+                        if (Number % val.Key == 0)
+                            result += val.Value;
+                    }
                 }
-                return result;
+                catch (Exception ex)
+                {
+                    logger.Error("FooBarQixRuleDividers:ApplyRule Error: " + ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                logger.Error("An error occurred in the ApplythedeviderRule method: " + ex.Message);
-                return string.Empty;
-            }
+            return result;
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using NLog;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FooBarQixToolkit
 {
@@ -26,7 +23,7 @@ namespace FooBarQixToolkit
             {
                 if (Int64.TryParse(inputString, out parsedNumber))
                 {
-                    result = foobarqixruledividers.ApplytheDeviderRule(parsedNumber);
+                    result = foobarqixruledividers.ApplyRule(inputString);
 
                     result += BuildString(result, inputString);
                     if (string.IsNullOrEmpty(result))
