@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FooBarQixAbstractRules.cs" />
     <Compile Include="FooBarQixRuleDividers.cs" />
     <Compile Include="FooBarQix.cs" />
     <Compile Include="FooBarQixOperations.cs" />
