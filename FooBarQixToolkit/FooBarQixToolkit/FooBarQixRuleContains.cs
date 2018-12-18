@@ -21,32 +21,25 @@ namespace FooBarQixToolkit
         public override string ApplyRule(string number)
         {
             long parsedNumber = 0;
-            string result = string.Empty;   
-            try
+            string result = string.Empty;
+
+            if (Int64.TryParse(number, out parsedNumber))
             {
-                if (Int64.TryParse(number, out parsedNumber))
+                if (parsedNumber % 3 != 0
+                   && parsedNumber % 5 != 0
+                   && parsedNumber % 7 != 0
+                   && !number.Contains("3")
+                    && !number.Contains("5")
+                    && !number.Contains("7"))
                 {
-                    if (parsedNumber % 3 != 0
-                       && parsedNumber % 5 != 0
-                       && parsedNumber % 7 != 0
-                       && !number.Contains("3")
-                        && !number.Contains("5")
-                        && !number.Contains("7"))
-                    {
-                        result = number.Replace('0', '*');
-                    }
-                    else
-                    {
-                        result = number.Aggregate(result, (current, t) => current + ReturnDigitExpression(t.ToString()));
-                    }
+                    result = number.Replace('0', '*');
                 }
-                return result;
+                else
+                {
+                    result = number.Aggregate(result, (current, t) => current + ReturnDigitExpression(t.ToString()));
+                }
             }
-            catch (Exception ex)
-            {
-                logger.Error("An error occurred in the FooBarQixRuleContains:ApplyRule method: " + ex.Message);
-                return string.Empty;
-            }     
+            return result;
         }
 
         public string ReturnDigitExpression(string number)

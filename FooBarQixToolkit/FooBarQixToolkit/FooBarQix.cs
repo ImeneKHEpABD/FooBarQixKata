@@ -18,7 +18,7 @@ namespace FooBarQixToolkit
         public string Compute(string number)
         {
             try
-            {  
+            {
                 return foobarqixoperations.EvaluateRules(number);
             }
             catch (Exception ex)

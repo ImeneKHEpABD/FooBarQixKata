@@ -1,6 +1,5 @@
 ﻿using NLog;
 using System;
-using System.Linq;
 
 namespace FooBarQixToolkit
 {
@@ -20,22 +19,15 @@ namespace FooBarQixToolkit
         {
             long parsedNumber = 0;
             var result = string.Empty;
-            try
-            {
-                if (Int64.TryParse(inputString, out parsedNumber))
-                {
-                    result = foobarqixruledividers.ApplyRule(inputString);
 
-                    result += foobarqixrulecontains.ApplyRule(inputString);
-                }
-                else
-                {
-                    logger.Error($"The input value [{parsedNumber}] is not a valid number");
-                }
-            }
-            catch (Exception ex)
+            if (Int64.TryParse(inputString, out parsedNumber))
             {
-                logger.Error("EvaluateRules Error: " + ex.Message);
+                result = foobarqixruledividers.ApplyRule(inputString);
+                result += foobarqixrulecontains.ApplyRule(inputString);
+            }
+            else
+            {
+                logger.Error($"The input value [{parsedNumber}] is not a valid number");
             }
             return result;
         }
