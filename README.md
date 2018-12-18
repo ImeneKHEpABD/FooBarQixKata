@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ImeneKHEpABD/FooBarQixKata.svg?branch=master)](https://travis-ci.org/ImeneKHEpABD/FooBarQixKata)
 # FooBarQixKata
-FooBarQix
+## Statement
 You should implement a function String compute(String) which implements the following rules.
 
 ### Step 1
@@ -35,8 +35,10 @@ We have a new business request : we must keep a trace of 0 in numbers, each 0 mu
 * 105   => FooBarQix*Bar
 * 10101 => FooQix**
 
-# Getting Started
-The FooBarQix kata is mainly composed of two rules to apply on a given number:
+## Getting Started
+# Project type
+The given solution is a .Net toolkit that allows any other user to build his own application to evaluate the FooBarQix rules for a given string input.
+The following rules were implemented:
 * The Division rule : 
    - If the number is divisible by 3 then add Foo
    - If the number is divisible by 5 then add Bar
@@ -45,9 +47,6 @@ The FooBarQix kata is mainly composed of two rules to apply on a given number:
 For each digit 3,5,7 and 0, add respectively "Foo", "Bar", "Qix", “*“.
 
 If the rules are not applicable, then the Evaluate method will return the input number string if it does not include 0, otherwise it will return a string after replacing the 0 by "*"
-
-# Project type
-The given solution is a .Net toolkit that allows any other user to build his own application to evaluate the FooBarQix rules for a given string input.
 
 # Installing
 In order to successfully compile the project solution, you will require to do the following:
