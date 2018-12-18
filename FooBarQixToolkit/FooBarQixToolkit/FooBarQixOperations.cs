@@ -58,7 +58,7 @@ namespace FooBarQixToolkit
                 }
                 else
                 {
-                    result = number.Aggregate(result, (current, t) => current + foobarqixrulecontains.ApplytheContainsRule(t.ToString()));
+                    result = number.Aggregate(result, (current, t) => current + foobarqixrulecontains.ApplyRule(t.ToString()));
                 }
             }
             catch (Exception ex)

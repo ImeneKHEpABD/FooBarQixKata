@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FooBarQixToolkit
 {
-    public class FooBarQixRuleContains
+    public class FooBarQixRuleContains: FooBarQixAbstractRules
     {
         private static Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public Dictionary<int, string> DicContainsRules = new Dictionary<int, string>
@@ -18,7 +18,7 @@ namespace FooBarQixToolkit
             [0] = "*"
         };
 
-        public string ApplytheContainsRule(string number)
+        public override string ApplyRule(string number)
         {
             int key;
             StringBuilder result = new StringBuilder();
