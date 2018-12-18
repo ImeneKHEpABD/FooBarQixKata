@@ -14,10 +14,11 @@ namespace FooBarQixToolkit
             logger.Info("Initialize FooBarQix Toolkit");
             foobarqixoperations = opM;
         }
+
         public string Compute(string number)
         {
             try
-            {
+            {  
                 return foobarqixoperations.EvaluateRules(number);
             }
             catch (Exception ex)
@@ -26,7 +27,5 @@ namespace FooBarQixToolkit
                 return string.Empty;
             }
         }
-
-        
     }
 }
