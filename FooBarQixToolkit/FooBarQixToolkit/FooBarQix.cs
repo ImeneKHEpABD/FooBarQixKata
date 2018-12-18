@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,18 @@ namespace FooBarQixToolkit
 {
     public class FooBarQix
     {
+        private static Logger logger;
         public Dictionary<int, string> DicDividerRules = new Dictionary<int, string>
         {
             [3] = "Foo",
             [5] = "Bar",
             [7] = "Qix"
         };
+        public FooBarQix()
+        {
+            logger = LogManager.GetCurrentClassLogger();
+            logger.Info("Initialize FooBarQix Toolkit");
+        }
         public string Compute(string number)
         {
             long integer;
@@ -39,6 +46,7 @@ namespace FooBarQixToolkit
             }
             catch (Exception ex)
             {
+                logger.Error("An error occurred in the Compute method: " + ex.Message);
                 return string.Empty;
             }
         }
@@ -64,6 +72,7 @@ namespace FooBarQixToolkit
             }
             catch (Exception ex)
             {
+                logger.Error("An error occurred in the ApplytheContainsRule method: " + ex.Message);
                 return string.Empty;
             }
         }
@@ -83,6 +92,7 @@ namespace FooBarQixToolkit
             }
             catch (Exception ex)
             {
+                logger.Error("An error occurred in the ApplythedeviderRule method: " + ex.Message);
                 return string.Empty;
             }
         }
@@ -110,6 +120,7 @@ namespace FooBarQixToolkit
             }
             catch (Exception ex)
             {
+                logger.Error("An error occurred in the BuildString method: " + ex.Message);
                 result = string.Empty;
             }
             return result.ToString();
