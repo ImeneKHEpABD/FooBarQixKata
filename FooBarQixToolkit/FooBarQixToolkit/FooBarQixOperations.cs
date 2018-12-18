@@ -9,10 +9,10 @@ namespace FooBarQixToolkit
         public FooBarQixRuleDividers foobarqixruledividers;
         private Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public FooBarQixOperations()
+        public FooBarQixOperations(FooBarQixRuleContains _foobarqixrulecontains, FooBarQixRuleDividers _foobarqixruledividers)
         {
-            foobarqixrulecontains = new FooBarQixRuleContains();
-            foobarqixruledividers = new FooBarQixRuleDividers();
+            foobarqixrulecontains = _foobarqixrulecontains;
+            foobarqixruledividers = _foobarqixruledividers;
         }
 
         public string EvaluateRules(string inputString)

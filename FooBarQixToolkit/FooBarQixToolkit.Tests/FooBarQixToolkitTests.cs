@@ -9,7 +9,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("8", "8")]
         public void should_return_number_when_input_is_regular_number(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -18,7 +18,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("24", "Foo")]
         public void should_return_string_that_contains_only_one_Foo_when_input_is_only_divisible_by_3(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -26,7 +26,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("32", "Foo")]
         public void should_return_string_that_contains_only_one_Foo_when_input_only_contains_only_3(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -35,7 +35,7 @@ namespace FooBarQixToolkit.Tests
 
         public void should_return_string_that_contains_multiple_Foo_when_input_contains_at_least_one_3_and_is_divisisble_by_3(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -43,14 +43,14 @@ namespace FooBarQixToolkit.Tests
         [TestCase("25", "BarBar")]
         public void should_return_string_that_contains_multiple_Bar_when_input_string_is_divisible_by_5_and_contains_5(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
         [TestCase("28", "Qix")]
         public void should_return_string_that_contains_only_one_Qix_when_input_string_is_only_divisible_by_7(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -58,7 +58,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("47", "Qix")]
         public void should_return_string_that_contains_only_one_Qix_when_input_string_contains_only_one_7(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -66,14 +66,14 @@ namespace FooBarQixToolkit.Tests
         [TestCase("77", "QixQixQix")]
         public void should_return_string_that_contains_multiple_Qix_when_input_is_divisible_by_7_and_contains_7(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
         [TestCase("53", "BarFoo")]
         public void should_return_string_that_contains_respectively_Bar_and_Foo_when_input_contains_respectively_5_and_3(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -82,8 +82,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("15", "FooBarBar")]
         public void should_return_string_that_contains_respectively_Foo_Bar_or_Qix_when_input_is_divisible_by_3_5_or_7(string number, string expected)
         {
-
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -92,14 +91,14 @@ namespace FooBarQixToolkit.Tests
         [TestCase("802", "8*2")]
         public void should_return_string_that_contains_numbers_and_asterisk_when_input_contains_0_and_regular_numbers(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
         [TestCase("303", "FooFoo*Foo")]
         public void should_return_string_that_contains_only_Foo_and_asterisk_when_input_is_only_divisible_by_3_and_contains_3_and_0(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
@@ -108,7 +107,7 @@ namespace FooBarQixToolkit.Tests
         [TestCase("10101", "FooQix**")]
         public void should_return_string_that_contains_respectively_Foo_Bar_Qix_and_asterisk_when_input_is_divisible_by_3_5_or_7_and_contains_3_5_7_or_0(string number, string expected)
         {
-            var computed = new FooBarQix(new FooBarQixOperations()).Compute(number);
+            var computed = new FooBarQix(new FooBarQixOperations(new FooBarQixRuleContains(), new FooBarQixRuleDividers())).Compute(number);
             Assert.That(computed, Is.EqualTo(expected));
         }
 
