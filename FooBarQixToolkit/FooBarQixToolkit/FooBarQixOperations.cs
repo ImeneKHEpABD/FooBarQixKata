@@ -9,6 +9,7 @@ namespace FooBarQixToolkit
 {
     public class FooBarQixOperations
     {
+        public FooBarQixRuleContains foobarqixrulecontains;
         private Logger logger = NLog.LogManager.GetCurrentClassLogger();
         public Dictionary<int, string> DicDividerRules = new Dictionary<int, string>
         {
@@ -16,14 +17,11 @@ namespace FooBarQixToolkit
             [5] = "Bar",
             [7] = "Qix"
         };
-        public Dictionary<int, string> DicContainsRules = new Dictionary<int, string>
-        {
-            [3] = "Foo",
-            [5] = "Bar",
-            [7] = "Qix",
-            [0] = "*"
-        };
 
+        public FooBarQixOperations()
+        {
+            foobarqixrulecontains = new FooBarQixRuleContains();
+        }
         public string EvaluateRules(string inputString)
         {
             long parsedNumber = 0;
@@ -50,23 +48,7 @@ namespace FooBarQixToolkit
             return result;
         }
 
-        public string ApplytheContainsRule(string number)
-        {
-            int key;
-            StringBuilder result = new StringBuilder();
-            try
-            {
-                key = Int16.Parse(number);
-                if (DicContainsRules.ContainsKey(key))
-                    result.Append(DicContainsRules[key]);
-                return result.ToString();
-            }
-            catch (Exception ex)
-            {
-                logger.Error("An error occurred in the ApplytheContainsRule method: " + ex.Message);
-                return string.Empty;
-            }
-        }
+        
 
         public string ApplytheDeviderRule(long number)
         {
@@ -102,7 +84,7 @@ namespace FooBarQixToolkit
                 }
                 else
                 {
-                    result = number.Aggregate(result, (current, t) => current + ApplytheContainsRule(t.ToString()));
+                    result = number.Aggregate(result, (current, t) => current + foobarqixrulecontains.ApplytheContainsRule(t.ToString()));
                 }
             }
             catch (Exception ex)

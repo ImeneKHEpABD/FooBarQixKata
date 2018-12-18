@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="FooBarQix.cs" />
     <Compile Include="FooBarQixOperations.cs" />
+    <Compile Include="FooBarQixRuleContains.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
