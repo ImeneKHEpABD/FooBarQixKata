@@ -36,7 +36,7 @@ We have a new business request : we must keep a trace of 0 in numbers, each 0 mu
 * 10101 => FooQix**
 
 ## Getting Started
-### Project type
+### Project Implementation
 The given solution is a .Net toolkit that allows any other user to build his own application to evaluate the FooBarQix rules for a given string input.
 The following rules were implemented:
 * The Division rule : 
