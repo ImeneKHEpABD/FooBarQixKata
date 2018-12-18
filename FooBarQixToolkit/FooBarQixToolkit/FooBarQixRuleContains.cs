@@ -36,13 +36,13 @@ namespace FooBarQixToolkit
                 }
                 else
                 {
-                    result = number.Aggregate(result, (current, t) => current + ReturnDigitExpression(t.ToString()));
+                    result = number.Aggregate(result, (current, t) => current + ReplaceDigitExpression(t.ToString()));
                 }
             }
             return result;
         }
 
-        public string ReturnDigitExpression(string number)
+        public string ReplaceDigitExpression(string number)
         {
             StringBuilder result = new StringBuilder();
             int key = Int16.Parse(number);
